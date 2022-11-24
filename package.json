@@ -21,6 +21,7 @@
     "immer": "^9.0.16",
     "rxjs": "~7.5.0",
     "tslib": "^2.3.0",
+    "vue": "^3.2.45",
     "zone.js": "~0.12.0"
   },
   "devDependencies": {
