@@ -45,12 +45,19 @@ export class Store<T,Key = string> {
     return this.valueSubject.getValue();
   }
 
-  /** Changes feed */
+  /**
+   * Changes feed : very useful for debugging and other scenarios (trigger action based on a diff for example)
+   *
+  */
   get storeUpdateChanges(): Observable<StoreUpdateChange<T>> {
     return this.storeUpdateChangeSubject.asObservable();
   }
 
-  // safely mutates the current state
+  /**
+   * safely mutates the current state
+   * @param mutation
+   * @param options
+   */
   mutate(mutation: (previousState: Draft<T>) => void, options: CommandOptions = {}): void {
     const previousValue = this.valueSubject.getValue();
     const currentValue = produce(previousValue, (draft)=> {
