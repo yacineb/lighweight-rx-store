@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import * as activitystore from './activity.store';
 const { createApp } = require('vue/dist/vue.esm-bundler.js');
 
+
 const VueComponent = createApp({
       data() {
         return {
@@ -15,7 +16,7 @@ const VueComponent = createApp({
       },
     beforeDestroy () {
         // unsubscribe to ensure no memory leaks
-        this.subscription.unsubscribe();
+        this.sub.unsubscribe();
     },
       template: `<span>VueJs component: <b>{{ activity }}</b></span>`,
     })
